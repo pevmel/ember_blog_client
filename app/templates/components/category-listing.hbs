@@ -1,0 +1,27 @@
+{{#paper-expansion-panel as |panel|}}
+  {{#panel.collapsed}}
+    <div class="md-panel-title">{{category.name}}</div>
+    <div class="md-panel-summary">{{category.description}}</div>
+    {{paper-icon "keyboard_arrow_down"}}
+  {{/panel.collapsed}}
+
+  {{#panel.expanded as |expanded|}}
+    {{#expanded.header}}
+      <div class="md-panel-title">{{category.name}}</div>
+      <div class="md-panel-summary">{{category.description}}</div>
+      {{paper-icon "keyboard_arrow_up"}}
+    {{/expanded.header}}
+
+    {{#expanded.content}}
+      Content
+    {{/expanded.content}}
+
+    {{#expanded.footer}}
+      <span class="flex"></span>
+      {{#paper-button primary=true onClick=(action panel.collapse)}}
+        Add new Article
+      {{/paper-button}}
+    {{/expanded.footer}}
+
+  {{/panel.expanded}}
+{{/paper-expansion-panel}}
